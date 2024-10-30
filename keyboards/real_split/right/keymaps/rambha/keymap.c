@@ -14,13 +14,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Y,            KC_U,                 KC_I,                 KC_O,               KC_P,                       KC_NO,
         KC_H,            MT(MOD_RCTL, KC_J),   MT(MOD_RSFT, KC_K),   MT(MOD_RALT, KC_L), MT(MOD_RGUI, KC_SEMICOLON), KC_NO,
         KC_N,            KC_M,                 KC_COMMA,             KC_DOT,             KC_SLASH,                   KC_NO,
-        LT(1, KC_ENTER), KC_BACKSPACE,         DELETE_TOGGLE,        KC_NO,              KC_NO,                      KC_NO
+        LT(1, KC_ENTER), LT(2, KC_BACKSPACE),  DELETE_TOGGLE,        KC_NO,              KC_NO,                      KC_NO
     ),
     [1] = LAYOUT_ortho_4x6(
         KC_QUOTE,          KC_F9,                 KC_F10,               KC_F11,                 KC_F12,                 KC_NO,
         KC_LEFT,           MT(MOD_RCTL, KC_DOWN), MT(MOD_RSFT, KC_UP),  MT(MOD_RALT, KC_RIGHT), KC_RIGHT_GUI,           KC_NO,
         KC_MINUS,          KC_F1,                 KC_F2,                KC_F3,                  KC_F4,                  KC_NO,
-        LT(1, KC_ENTER),   KC_BACKSPACE,          DELETE_TOGGLE,        KC_NO,                  KC_NO,                  KC_NO
+        LT(1, KC_ENTER),   LT(2, KC_BACKSPACE),   DELETE_TOGGLE,        KC_NO,                  KC_NO,                  KC_NO
+    ),
+    [2] = LAYOUT_ortho_4x6(
+        MS_BTN1,          MS_WHLD,               MS_WHLU,              MS_ACL0,                MS_ACL2,  KC_NO,
+        MS_LEFT,          MT(MOD_RCTL, MS_DOWN), MT(MOD_RSFT, MS_UP),  MT(MOD_RALT, MS_RGHT),  MS_BTN3,  KC_NO,
+        MS_BTN2,          KC_F5,                 KC_F6,                KC_F7,                  KC_F8,    KC_NO,
+        LT(1, KC_ENTER),  LT(2, KC_BACKSPACE),   DELETE_TOGGLE,        KC_NO,                  KC_NO,    KC_NO
     )
 };
 
