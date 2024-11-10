@@ -53,3 +53,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;  // Process other keycodes normally
 }
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LGUI, KC_A):
+           return TAPPING_TERM + 50;
+        default:
+            return TAPPING_TERM;
+    }
+}
