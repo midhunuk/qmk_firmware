@@ -1,6 +1,7 @@
 #AUTO_SHIFT_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 LAYER_LOCK_ENABLE = yes
+COMBO_ENABLE = yes
 
 #Explore
 #TAP_DANCE_ENABLE = yes

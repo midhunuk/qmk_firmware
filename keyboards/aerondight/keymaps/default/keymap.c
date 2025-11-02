@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [L_NAV] = LAYOUT_ortho_4x10(
-        KC_NO,   KC_NO,   KC_NO,   KC_NO,   QK_BOOT,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_INS,
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_INS,
         KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NO,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,  KC_DEL,
         KC_LGUI, KC_NO,   KC_NO,   KC_NO,   KC_NO,      MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT,  KC_CAPS,
         KC_NO,   KC_SPC,  KC_NO,   KC_ESC,  KC_NO,      KC_NO,   MS_BTN1, MS_BTN2, MS_BTN3,  KC_NO
@@ -39,4 +39,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_LGUI, KC_NO,         KC_MINS,       KC_PLUS,       KC_EQL,    KC_F6, KC_F7,     KC_COMM, KC_DOT, KC_RGUI,
        KC_NO,   KC_SPC,    LT(L_NAV, KC_TAB), TG(L_NUM),     KC_NO,     KC_NO, TG(L_SYM), KC_BSPC, KC_ENT, KC_NO
     ),
+};
+
+const uint16_t PROGMEM esc_combo[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM boot_combo[] = {KC_HOME, KC_END, COMBO_END};
+
+combo_t key_combos[] = {
+  COMBO(esc_combo, KC_ESC),
+  COMBO(boot_combo, QK_BOOT),
 };
