@@ -4,104 +4,39 @@
 #include QMK_KEYBOARD_H
 
 enum aerondight_layers {
-    L_QWERTY,
-    L_NAV,
-    L_NUM,
-    L_FUN,
-    L_MOU,
-    L_CRL,
+    L_QWE,
     L_SYM,
+    L_NUM,
+    L_NAV
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [L_QWERTY] = LAYOUT_ortho_4x10(
-    //,-------------+-------------+-------------+------------+--------.             ,------+------------+-------------+-------------+-------------.
-             KC_Q,       KC_W,         KC_E,         KC_R,      KC_T,                 KC_Y,    KC_U,          KC_I,        KC_O,          KC_P,
-    //,-------------+-------------+-------------+-------------+-------.             ,------+------------+-------------+-------------+-------------.
-             KC_A,   LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F),  KC_G,                 KC_H, RCTL_T(KC_J), RSFT_T(KC_K), LALT_T(KC_L),    KC_SCLN,
-    //,-------------+----------+-------------+-------------+----------.             ,------+------------+-------------+-------------+-------------.
-       LGUI_T(KC_Z),    KC_X,         KC_C,         KC_V,      KC_B,                  KC_N,    KC_M,        KC_COMM,      KC_DOT,  RGUI_T(KC_SLSH),
-    //,-------------+---------+--------+------------------+-----------.             ,---------+----------------+-----------------+--------+-------.
-      KC_NO, LT(L_CRL,KC_ESC), LT(L_MOU, KC_TAB), LT(L_NAV, KC_SPC), QK_LLCK,  QK_LLCK, LT(L_NUM,KC_ENT),LT(L_SYM,KC_BSPC),LT(L_FUN,KC_DEL), KC_NO
-    //,----------+---------+--------+------------------+-----+--------.             ,---------+----------------+-----------------+--------+-------.
+    [L_QWE] = LAYOUT_ortho_4x10(
+        KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,       KC_Y,  KC_U,         KC_I,         KC_O,         KC_P,
+        KC_A,         LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G,       KC_H,  RCTL_T(KC_J), RSFT_T(KC_K), LALT_T(KC_L), KC_SCLN,
+        LGUI_T(KC_Z), KC_X,         KC_C,         KC_V,         KC_B,       KC_N,  KC_M,         KC_COMM,      KC_DOT, RGUI_T(KC_SLSH),
+        KC_NO,        KC_SPC,  LT(L_NAV, KC_TAB), TG(L_NUM),    KC_NO,      KC_NO, TG(L_SYM),    KC_BSPC,      KC_ENT,       KC_NO
     ),
 
-    [L_CRL] = LAYOUT_ortho_4x10(
-    //,-----------+----------+----------+----------+-----------.     ,-----------+----------+-----------+----------+-----------.
-        LCTL(KC_Q),LCTL(KC_W),LCTL(KC_E),LCTL(KC_R),LCTL(KC_T),       LCTL(KC_Y), LCTL(KC_U), LCTL(KC_I),LCTL(KC_O),LCTL(KC_P),
-    //,-----------+----------+----------+----------+-----------.     ,-----------+----------+-----------+----------+-----------.
-        LCTL(KC_A),LCTL(KC_S),LCTL(KC_D),LCTL(KC_F),LCTL(KC_G),       LCTL(KC_H), LCTL(KC_J), LCTL(KC_K),LCTL(KC_L),   KC_NO,
-    //,-----------+----------+----------+----------+-----------.     ,-----------+----------+-----------+----------+-----------.
-        LCTL(KC_Z),LCTL(KC_X),LCTL(KC_C),LCTL(KC_V),LCTL(KC_B),       LCTL(KC_N), LCTL(KC_M),   KC_NO,      KC_NO,     KC_NO,
-    //,-----------+----------+----------+----------+-----------.     ,-----------+----------+-----------+----------+-----------.
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-                KC_NO,    KC_ESC,   KC_TAB,  KC_SPC,   QK_LLCK,       QK_LLCK,  KC_ENT,   KC_BSPC,   KC_DEL,   KC_NO
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
+    [L_SYM] = LAYOUT_ortho_4x10(
+        KC_EXLM, KC_AT,   KC_HASH,           KC_DLR,    KC_PERC,     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,
+        KC_UNDS, KC_LABK, KC_LBRC,           KC_LCBR,   KC_LPRN,     KC_RPRN, KC_RCBR, KC_RBRC, KC_RABK, KC_COLN,
+        KC_GRV,  KC_TILD, KC_MINS,           KC_PLUS,   KC_EQL,      KC_DQUO, KC_QUOT, KC_PIPE, KC_BSLS, KC_SLSH,
+        KC_NO,   KC_SPC,  LT(L_NAV, KC_TAB), TG(L_NUM), KC_NO,       KC_NO, TG(L_SYM), KC_BSPC, KC_ENT,  KC_NO
     ),
 
     [L_NAV] = LAYOUT_ortho_4x10(
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,                      KC_FIND,  KC_PSTE,  KC_COPY,  KC_CUT,   KC_UNDO,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,   KC_NO,                      KC_LEFT,  KC_DOWN,   KC_UP,   KC_RGHT,  KC_CAPS,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_LGUI,    KC_NO,    KC_NO,    KC_NO,    KC_NO,                      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   KC_INS,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-                KC_NO,    KC_ESC,   KC_TAB,  KC_SPC,   QK_LLCK,       QK_LLCK,  KC_ENT,   KC_BSPC,   KC_DEL,   KC_NO
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-    ),
-
-    [L_MOU] = LAYOUT_ortho_4x10(
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,                      KC_FIND,  KC_PSTE,  KC_COPY,  KC_CUT,   KC_UNDO,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,   KC_NO,                      MS_LEFT,  MS_DOWN,   MS_UP,   MS_RGHT,  MS_ACL0,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_LGUI,    KC_NO,    KC_NO,    KC_NO,    KC_NO,                      MS_WHLL,  MS_WHLD,  MS_WHLU,  MS_WHLR,  MS_ACL1,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-               KC_NO,    KC_ESC,   KC_TAB,  KC_SPC,   QK_LLCK,       QK_LLCK,  MS_BTN1,  MS_BTN2, MS_BTN3,   MS_BTN4
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
+        KC_NO,   KC_NO,   KC_NO,   KC_NO,   QK_BOOT,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_INS,
+        KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NO,      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,  KC_DEL,
+        KC_LGUI, KC_NO,   KC_NO,   KC_NO,   KC_NO,      MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT,  KC_CAPS,
+        KC_NO,   KC_SPC,  KC_NO,   KC_ESC,  KC_NO,      KC_NO,   MS_BTN1, MS_BTN2, MS_BTN3,  KC_NO
     ),
 
     [L_NUM] = LAYOUT_ortho_4x10(
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_GRV,     KC_7,     KC_8,     KC_9,    KC_0,                       KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-       KC_MINUS,    KC_4,     KC_5,     KC_6,   KC_QUOT,                      KC_NO,   KC_RCTL,   KC_RSFT, KC_LALT,  KC_LGUI,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_SLSH,    KC_1,     KC_2,     KC_3,   KC_BSLS,                       KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_RGUI,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-               KC_NO,   KC_LBRC,  KC_RBRC,   KC_EQL,  QK_LLCK,       QK_LLCK,  KC_ENT,   KC_BSPC,   KC_DEL,    KC_NO
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
+       KC_F1,   KC_F2,         KC_F3,         KC_F4,         KC_F5,     KC_F8, KC_F9,     KC_F10,  KC_F11, KC_F12,
+       KC_1,    LALT_T(KC_2),  LSFT_T(KC_3),  LCTL_T(KC_4),  KC_5,      KC_6,  KC_7,      KC_8,    KC_9,   KC_0,
+       KC_LGUI, KC_NO,         KC_MINS,       KC_PLUS,       KC_EQL,    KC_F6, KC_F7,     KC_COMM, KC_DOT, KC_RGUI,
+       KC_NO,   KC_SPC,    LT(L_NAV, KC_TAB), TG(L_NUM),     KC_NO,     KC_NO, TG(L_SYM), KC_BSPC, KC_ENT, KC_NO
     ),
-
-    [L_FUN] = LAYOUT_ortho_4x10(
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_PAUS,   KC_F7,    KC_F8,    KC_F9,   KC_F12,                       KC_NO,    KC_NO,    KC_NO,   QK_BOOT,   KC_NO,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_SCRL,   KC_F4,    KC_F5,    KC_F6,   KC_F11,                       KC_NO,   KC_RCTL,   KC_RSFT, KC_LALT,  KC_RGUI,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_PSCR,   KC_F1,    KC_F2,    KC_F3,   KC_F10,                      KC_LEFT,  KC_DOWN,   KC_UP,   KC_RGHT,  KC_RGUI,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-               KC_NO,    KC_ESC,   KC_TAB,  KC_SPC,   QK_LLCK,       QK_LLCK,  KC_ENT,  KC_BSPC,   KC_DEL,   KC_NO
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-     ),
-
-    [L_SYM] = LAYOUT_ortho_4x10(
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_TILD,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,                      KC_NO,    KC_NO,    KC_NO,   QK_BOOT,   KC_NO,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_UNDS,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_DQT,                       KC_NO,   KC_RCTL,   KC_RSFT, KC_LALT,  KC_RGUI,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-        KC_QUES,  KC_EXLM,   KC_AT,   KC_HASH,  KC_PIPE,                      KC_LEFT, KC_DOWN,   KC_UP,   KC_RGHT,  KC_RGUI,
-    //,---------+---------+---------+---------+---------.                  ,---------+---------+---------+---------+---------.
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-               KC_NO,   KC_LCBR,  KC_RCBR,  KC_PLUS,  QK_LLCK,        QK_LLCK,  KC_ENT,  KC_BSPC,   KC_DEL,   KC_NO
-    //      ,---------+---------+---------+---------+---------.    ,---------+---------+---------+---------+---------.
-     ),
 };
