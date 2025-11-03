@@ -27,10 +27,5 @@
 // Caps words
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
-// TODO:explore thumb combos
-// Thumb Combos
-// #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-//   #define COMBO_COUNT 8
-//   #define COMBO_TERM 200
-//   #define EXTRA_SHORT_COMBOS
-// #endif
+// for layer tapping
+#define TAPPING_TOGGLE 2
